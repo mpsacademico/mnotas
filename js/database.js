@@ -24,7 +24,7 @@ firebase.database().ref('notas').on('value', function (snapshot) {
         var li = document.createElement('li');
 		li.className = "collection-item";
         li.appendChild(document.createTextNode(item.val().titulo + ' - ' + item.val().conteudo + ' - ' + item.val().visibilidade ));
-		li.innerHTML += " <a class=\"waves-effect waves-light btn\" href=\"#modal1\">Editar</a>";
+		li.innerHTML += " <a href=\"#editar\"><i class=\"material-icons\">edit</i</a><a href=\"#confirmar-deletar\"><i class=\"material-icons\">delete</i</a>";
         lista.appendChild(li);
     });
 });
