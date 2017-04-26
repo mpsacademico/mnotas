@@ -17,3 +17,13 @@ function criarNota(titulo, conteudo, visibilidade) {
     };
     return firebase.database().ref().child('notas').push(data);
 }
+
+firebase.database().ref('notas').on('value', function (snapshot) {
+    lista.innerHTML = '';
+    snapshot.forEach(function (item) {
+        var li = document.createElement('li');
+		li.className = "collection-item";
+        li.appendChild(document.createTextNode(item.val().titulo + ' - ' + item.val().conteudo + ' - ' + item.val().visibilidade));
+        lista.appendChild(li);
+    });
+});
