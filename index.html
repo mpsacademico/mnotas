@@ -31,7 +31,7 @@
 				</div>
 				<div class="row">
 					<div class="input-field col s6">
-						<select>
+						<select id="visibilidade">
 							<option value="" disabled selected>Escolha a visibilidade</option>
 							<option value="publica">Pública</option>
 							<option value="privada">Privada</option>
@@ -39,7 +39,7 @@
 						<label>Visibilidade</label>
 					</div>
 				</div>
-				<a class="waves-effect waves-light btn light-blue">Criar nota textual</a>
+				<a id="criar" class="waves-effect waves-light btn light-blue">Criar nota textual</a>
 			</form>
 		</div>
 		<p>Listagem de notas textuais</p>
@@ -55,5 +55,8 @@
 			 $('select').material_select();
 			});
 		</script>
+		<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/database.js"></script>
 	</body>
 </html>
