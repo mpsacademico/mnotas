@@ -6,7 +6,8 @@ var criar = document.getElementById('criar');
 var lista = document.getElementById('lista');
 
 criar.addEventListener('click', function () {
-    var r = criarNota(titulo.value, conteudo.value, visibilidade.value);	
+    var r = criarNota(titulo.value, conteudo.value, visibilidade.value);
+console.log(r);	
 });
 
 function criarNota(titulo, conteudo, visibilidade) {
@@ -19,12 +20,14 @@ function criarNota(titulo, conteudo, visibilidade) {
 }
 
 firebase.database().ref('notas').on('value', function (snapshot) {
-    lista.innerHTML = '';	
+    //lista.innerHTML = '';
     snapshot.forEach(function (item) {		
-        var li = document.createElement('li');
+		lista.innerHTML += '<div class="row"><div class="col s12 m6"><div class="card darken-1"><div class="card-content"><span class="card-title">'+item.val().titulo+'<a href="#"><i class="material-icons right">more_vert</i></a></span><p>' + item.val().conteudo + '</p></div></div></div></div>';
+        /*var li = document.createElement('li');		
 		li.className = "collection-item";
+		li.setAttribute("data-key", item.key);
         li.appendChild(document.createTextNode(item.val().titulo + ' - ' + item.val().conteudo + ' - ' + item.val().visibilidade ));
 		li.innerHTML += " <a href=\"#editar\"><i class=\"material-icons\">edit</i</a><a href=\"#confirmar-deletar\"><i class=\"material-icons\">delete</i</a>";
-        lista.appendChild(li);
+        lista.appendChild(li);*/
     });
 });
