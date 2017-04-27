@@ -22,7 +22,7 @@ function criarNota(titulo, conteudo, visibilidade) {
 firebase.database().ref('notas').on('value', function (snapshot) {
     //lista.innerHTML = '';
     snapshot.forEach(function (item) {		
-		lista.innerHTML += '<div class="row"><div class="col s12 m6"><div class="card darken-1"><div class="card-content"><span class="card-title">'+item.val().titulo+'<a href="#"><i class="material-icons right">more_vert</i></a></span><p>' + item.val().conteudo + '</p></div></div></div></div>';
+		lista.innerHTML += '<div class="card"><div class="card-content"><span class="card-title">'+item.val().titulo+'<a href="#"><i class="material-icons right">more_vert</i></a></span><p>'+item.val().conteudo+'</p></div></div>';
         /*var li = document.createElement('li');		
 		li.className = "collection-item";
 		li.setAttribute("data-key", item.key);
