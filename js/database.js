@@ -32,8 +32,17 @@ function criarNota(titulo, conteudo, visibilidade) {
 firebase.database().ref('notas').on('value', function (snapshot) {
     lista.innerHTML = '';
     snapshot.forEach(function (item) {	
-		var dt = new Date(item.val().timestamp);
-		lista.innerHTML += '<div class="card"><div class="card-content"><span class="card-title">'+item.val().titulo+'<a href="#"><i class="material-icons right">more_vert</i></a></span><p>'+dt+'</p><p>'+item.val().conteudo+'</p></div></div>';
+		var date = new Date(item.val().timestamp);
+		var dia = date.getDate();
+		var mes = date.getMonth();
+		var ano = date.getFullYear();
+		var hours = date.getHours();		
+		var minutes = date.getMinutes();
+		var seconds = date.getSeconds();
+		var d = dia + '/' + (mes+1) + '/' + ano;
+		var h = hours + ':' + minutes + ':' + seconds;
+		var dh = d + ' às ' + h;
+		lista.innerHTML += '<div class="card"><div class="card-content"><span class="card-title">'+item.val().titulo+'<a href="#"><i class="material-icons right">more_vert</i></a></span><p><small>'+dh+'</small></p><p>'+item.val().conteudo+'</p></div></div>';
         /*var li = document.createElement('li');		
 		li.className = "collection-item";
 		li.setAttribute("data-key", item.key);
