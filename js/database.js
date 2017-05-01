@@ -22,8 +22,8 @@ function criarNota(titulo, conteudo, visibilidade) {
         titulo: titulo,
         conteudo: conteudo,
 		visibilidade: visibilidade
-    };
-    return firebase.database().ref().child('notas').push(data);
+    };	
+    return firebase.database().ref().child('notas').push(data);	
 }
 
 firebase.database().ref('notas').on('value', function (snapshot) {
