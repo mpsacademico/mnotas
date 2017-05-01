@@ -7,12 +7,15 @@ var lista = document.getElementById('lista');
 
 var deletarTudo = document.getElementById('deletar-tudo');
 
+var painelnota = document.getElementById('painel-nota');
+
 criar.addEventListener('click', function () {
     var r = criarNota(titulo.value, conteudo.value, visibilidade.value);
+	painelnota.style.display = 'none';
 });
 
 deletarTudo.addEventListener('click', function () {
-	alert(firebase.database().ref("notas").remove());
+	firebase.database().ref("notas").remove();
 });
 
 function criarNota(titulo, conteudo, visibilidade) {

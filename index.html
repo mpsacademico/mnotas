@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    </head>
    <body>
-      <nav class="blue #00bfa5 teal accent-4">
+      <nav class="blue teal accent-4">
          <div class="nav-wrapper">
             <a href="#" class="brand-logo center">MNotas</a>			
          </div>
@@ -16,10 +16,22 @@
       <div class="container">
          <div class="row">
             <p>Formulário de autenticação (sem regras de auth por enquanto)</p>
-            <div class="col s12 m6">
+			<p><a href="#" onclick="document.getElementById('painel-nota').style.display='block';">Criar nova nota textual</a> &bull; 
+			 <a id="conf-deletar-tudo" href="#confirmar-deletar-tudo">Apagar tudo</a></p>
+         <div id="confirmar-deletar-tudo" class="modal">
+            <div class="modal-content">
+               <h4>Apagar tudo</h4>
+               <p>Todas as notas serão excluídas permanentente. Deseja prosseguir?</p>
+            </div>
+            <div class="modal-footer">			
+               <a class="modal-action modal-close waves-effect waves-light btn red">Cancelar</a>
+               <a id="deletar-tudo" class="modal-action modal-close waves-effect waves-green btn-flat">Apagar tudo permanentemente</a>
+            </div>
+         </div>
+            <div id="painel-nota" style="display:none" class="col s12 m6">
                <div class="card blue-grey darken-1">
                   <div class="card-content white-text">
-                     <span class="card-title">Nova Nota</span>
+                     <span class="card-title">Nova Nota <a class="right" onclick="document.getElementById('painel-nota').style.display='none';">X</a></span>
                      <div class="row">
                         <form class="col s12">
                            <div class="row">
@@ -45,23 +57,14 @@
                               </div>
                            </div>
                            <a id="criar" class="waves-effect waves-light btn light-blue">Criar nota textual</a>
+						   <p></p>
                         </form>
                      </div>
                   </div>
                </div>
             </div>
-         </div>
-         <a id="conf-deletar-tudo" href="#confirmar-deletar-tudo" class="waves-effect waves-light btn red">Apagar tudo</a>
-         <div id="confirmar-deletar-tudo" class="modal">
-            <div class="modal-content">
-               <h4>Apagar tudo</h4>
-               <p>Todas as notas serão excluídas permanentente. Deseja prosseguir?</p>
-            </div>
-            <div class="modal-footer">			
-               <a class="modal-action modal-close waves-effect waves-light btn red">Cancelar</a>
-               <a id="deletar-tudo" class="modal-action modal-close waves-effect waves-green btn-flat">Apagar tudo permanentemente</a>
-            </div>
-         </div>
+         </div>  
+		 <div class="row">
          <p>Listagem de notas textuais</p>
          <!-- Modal Structure -->
          <div id="confirmar-deletar" class="modal">
@@ -88,6 +91,7 @@
                <small>O MNotas é um sistema em fase de desenvolvimento</small>
             </p>
          </footer>
+		 </div>
       </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
