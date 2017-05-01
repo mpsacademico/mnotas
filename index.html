@@ -12,82 +12,83 @@
          <div class="nav-wrapper">
             <a href="#" class="brand-logo center">MNotas</a>			
          </div>
-      </nav>      
-      <div class="container">	  
-      <div class="row">
-	  <p>Formulário de autenticação (sem regras de auth por enquanto)</p>
-         <div class="col s12 m6">
-            <div class="card blue-grey darken-1">
-               <div class="card-content white-text">
-                  <span class="card-title">Nova Nota</span>
-                  <div class="row">
-                     <form class="col s12">
-                        <div class="row">
-                           <div class="input-field col s12">
-                              <input placeholder="" id="titulo" type="text" class="validate">
-                              <label for="titulo">Título</label>
+      </nav>
+      <div class="container">
+         <div class="row">
+            <p>Formulário de autenticação (sem regras de auth por enquanto)</p>
+            <div class="col s12 m6">
+               <div class="card blue-grey darken-1">
+                  <div class="card-content white-text">
+                     <span class="card-title">Nova Nota</span>
+                     <div class="row">
+                        <form class="col s12">
+                           <div class="row">
+                              <div class="input-field col s12">
+                                 <input placeholder="" id="titulo" type="text" class="validate">
+                                 <label for="titulo">Título</label>
+                              </div>
                            </div>
-                        </div>
-                        <div class="row">
-                           <div class="input-field col s12">		
-                              <textarea id="conteudo" class="materialize-textarea"></textarea>
-                              <label for="conteudo">Conteúdo</label>
+                           <div class="row">
+                              <div class="input-field col s12">		
+                                 <textarea id="conteudo" class="materialize-textarea"></textarea>
+                                 <label for="conteudo">Conteúdo</label>
+                              </div>
                            </div>
-                        </div>
-                        <div class="row">
-                           <div class="input-field col s12">
-                              <select id="visibilidade">
-                                 <option value="" disabled selected>Escolha a visibilidade</option>
-                                 <option value="publica">Pública</option>
-                                 <option value="privada">Privada</option>
-                              </select>
-                              <label>Visibilidade</label>
+                           <div class="row">
+                              <div class="input-field col s12">
+                                 <select id="visibilidade">
+                                    <option value="" disabled selected>Escolha a visibilidade</option>
+                                    <option value="publica">Pública</option>
+                                    <option value="privada">Privada</option>
+                                 </select>
+                                 <label>Visibilidade</label>
+                              </div>
                            </div>
-                        </div>
-                        <a id="criar" class="waves-effect waves-light btn light-blue">Criar nota textual</a>
-                     </form>
+                           <a id="criar" class="waves-effect waves-light btn light-blue">Criar nota textual</a>
+                        </form>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
+         <a id="conf-deletar-tudo" href="#confirmar-deletar-tudo" class="waves-effect waves-light btn red">Apagar tudo</a>
+         <div id="confirmar-deletar-tudo" class="modal">
+            <div class="modal-content">
+               <h4>Apagar tudo</h4>
+               <p>Todas as notas serão excluídas permanentente. Deseja prosseguir?</p>
+            </div>
+            <div class="modal-footer">			
+               <a class="modal-action modal-close waves-effect waves-light btn red">Cancelar</a>
+               <a id="deletar-tudo" class="modal-action modal-close waves-effect waves-green btn-flat">Apagar tudo permanentemente</a>
+            </div>
+         </div>
+         <p>Listagem de notas textuais</p>
+         <!-- Modal Structure -->
+         <div id="confirmar-deletar" class="modal">
+            <div class="modal-content">
+               <h4>Excluir nota</h4>
+               <p>A nota <b id="textnota"></b> será excluída permanentente. Deseja prosseguir?</p>
+            </div>
+            <div class="modal-footer">			
+               <a class="modal-action modal-close waves-effect waves-light btn">Cancelar</a>
+               <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Excluir permanentemente</a>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col s6" id="lista">
+            </div>
+         </div>
+         <br>
+         <br><br>
+         <br><br>
+         <br><br>
+         <br>
+         <footer class="center">
+            <p>&copy; 2017 MNotas MPS. Todos os direitos reservados.<br>
+               <small>O MNotas é um sistema em fase de desenvolvimento</small>
+            </p>
+         </footer>
       </div>
-      <a id="conf-deletar-tudo" href="#confirmar-deletar-tudo" class="waves-effect waves-light btn red">Apagar tudo</a>
-	   <div id="confirmar-deletar-tudo" class="modal">
-         <div class="modal-content">
-            <h4>Apagar tudo</h4>
-            <p>Todas as notas serão excluídas permanentente. Deseja prosseguir?</p>
-         </div>
-         <div class="modal-footer">			
-            <a class="modal-action modal-close waves-effect waves-light btn red">Cancelar</a>
-            <a id="deletar-tudo" class="modal-action modal-close waves-effect waves-green btn-flat">Apagar tudo permanentemente</a>
-         </div>
-      </div>
-      <p>Listagem de notas textuais</p>    
-      <!-- Modal Structure -->
-      <div id="confirmar-deletar" class="modal">
-         <div class="modal-content">
-            <h4>Excluir nota</h4>
-            <p>A nota <b id="textnota"></b> será excluída permanentente. Deseja prosseguir?</p>
-         </div>
-         <div class="modal-footer">			
-            <a class="modal-action modal-close waves-effect waves-light btn">Cancelar</a>
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Excluir permanentemente</a>
-         </div>
-      </div>
-      <div class="row">
-         <div class="col s6" id="lista">
-         </div>
-      </div>
-      <br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br>
-      <footer class="center">
-         <p>&copy; 2017 MNotas MPS. Todos os direitos reservados.<br>
-		 <small>O MNotas é um sistema em fase de desenvolvimento</small></p>
-      </footer>
-	  </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
       <script>

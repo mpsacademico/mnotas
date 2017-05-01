@@ -9,13 +9,11 @@ var deletarTudo = document.getElementById('deletar-tudo');
 
 criar.addEventListener('click', function () {
     var r = criarNota(titulo.value, conteudo.value, visibilidade.value);
-console.log(r);	
 });
 
 deletarTudo.addEventListener('click', function () {
 	alert(firebase.database().ref("notas").remove());
 });
-
 
 function criarNota(titulo, conteudo, visibilidade) {
     var data = {
