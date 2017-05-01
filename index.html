@@ -51,8 +51,18 @@
             </div>
          </div>
       </div>
-      <a id="deletar-tudo" class="waves-effect waves-light btn red">Deletar tudo</a>
-      <p>Listagem de notas textuais</p>
+      <a id="conf-deletar-tudo" href="#confirmar-deletar-tudo" class="waves-effect waves-light btn red">Apagar tudo</a>
+	   <div id="confirmar-deletar-tudo" class="modal">
+         <div class="modal-content">
+            <h4>Apagar tudo</h4>
+            <p>Todas as notas serão excluídas permanentente. Deseja prosseguir?</p>
+         </div>
+         <div class="modal-footer">			
+            <a class="modal-action modal-close waves-effect waves-light btn red">Cancelar</a>
+            <a id="deletar-tudo" class="modal-action modal-close waves-effect waves-green btn-flat">Apagar tudo permanentemente</a>
+         </div>
+      </div>
+      <p>Listagem de notas textuais</p>    
       <!-- Modal Structure -->
       <div id="confirmar-deletar" class="modal">
          <div class="modal-content">
