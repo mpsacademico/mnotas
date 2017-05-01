@@ -22,7 +22,9 @@ function criarNota(titulo, conteudo, visibilidade) {
         titulo: titulo,
         conteudo: conteudo,
 		timestamp: + new Date(),
-		visibilidade: visibilidade
+		visibilidade: visibilidade,
+		estado: "aberta",
+		idusuario: 230
     };	
     return firebase.database().ref().child('notas').push(data);	
 }
