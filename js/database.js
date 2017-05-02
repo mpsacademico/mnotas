@@ -10,8 +10,13 @@ var deletarTudo = document.getElementById('deletar-tudo');
 var painelnota = document.getElementById('painel-nota');
 
 var menuzinho = function(){
-	//alert("click executado");
+	var tg = event.target;	
+	var id = tg.getAttribute("data-id");
+	var pe = tg.parentElement;
+	pe.innerHTML = "<p>formulário de edição</p>";
 }
+
+var menuhtml = '<a href=';
 
 criar.addEventListener('click', function () {
     var r = criarNota(titulo.value, conteudo.value, visibilidade.value);
@@ -47,11 +52,11 @@ firebase.database().ref('notas').on('value', function (snapshot) {
 		var d = dia + '/' + (mes+1) + '/' + ano;
 		var h = hours + ':' + minutes + ':' + seconds;
 		var dh = d + ' às ' + h;
-		lista.innerHTML += '<div class="card"><div class="card-content"><span class="card-title cardclick">'+item.val().titulo+'</span><p><small>'+dh+'</small></p><p>'+item.val().conteudo+'</p></div></div>';       
+		lista.innerHTML += '<div class="card"><div class="card-content"><span class="card-title cardclick" data-id='+item.key+'>'+item.val().titulo+'</span><small>'+dh+'</small><p>'+item.val().conteudo+'</p></div></div>';       
     });
 	var cardclick = document.getElementsByClassName('cardclick');
 	for (var i = 0; i < cardclick.length; i++) {
-		cardclick[i].addEventListener('click', menuzinho, false);
+		cardclick[i].addEventListener('dblclick', menuzinho, false);
 	}
 });
 
