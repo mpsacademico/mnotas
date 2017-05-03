@@ -15,7 +15,8 @@ var menuzinho = function(){
 	var pe = tg.parentElement;
 	var json = JSON.parse(pe.getAttribute("data-json"));
 	console.log(json);
-	pe.innerHTML = '<input type="text" value="'+json.titulo+'"><btn class="btn red" onclick=\'remover("'+id+'")\'>Remover</btn>';
+	pe.setAttribute("class","card-content blue lighten-5");
+	pe.innerHTML = '<input type="text" value="'+json.titulo+'"><textarea class="materialize-textarea">'+json.conteudo+'</textarea><btn class="btn red" onclick=\'remover("'+id+'")\'>Remover</btn>';
 }
 
 function remover(id){
