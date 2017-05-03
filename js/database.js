@@ -15,11 +15,11 @@ var menuzinho = function(){
 	var pe = tg.parentElement;
 	var json = JSON.parse(pe.getAttribute("data-json"));
 	console.log(json);
-	pe.innerHTML = '<input type="text" value="'+json.titulo+'"><btn class="btn red" onclick="remover("'+id+'")">Remover</btn>';
+	pe.innerHTML = '<input type="text" value="'+json.titulo+'"><btn class="btn red" onclick=\'remover("'+id+'")\'>Remover</btn>';
 }
 
 function remover(id){
-	alert(id);
+	firebase.database().ref("notas").child(id).remove();
 }
 
 var menuhtml = '<a href=';
