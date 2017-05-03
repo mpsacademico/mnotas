@@ -16,7 +16,7 @@ var menuzinho = function(){
 	var json = JSON.parse(pe.getAttribute("data-json"));
 	console.log(json);
 	pe.setAttribute("class","card-content blue lighten-5");
-	pe.innerHTML = '<input type="text" value="'+json.titulo+'"><textarea class="materialize-textarea">'+json.conteudo+'</textarea><btn class="btn red" onclick=\'remover("'+id+'")\'>Remover</btn>';
+	pe.innerHTML = '<span class="card-title">Edição da nota '+id+'</span><input type="text" value="'+json.titulo+'"><textarea class="materialize-textarea">'+json.conteudo+'</textarea><btn class="btn blue" onclick=\'remover("'+id+'")\'>Editar</btn><btn class="btn red" onclick=\'remover("'+id+'")\'>Remover</btn>';
 }
 
 function remover(id){
