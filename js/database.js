@@ -13,7 +13,13 @@ var menuzinho = function(){
 	var tg = event.target;	
 	var id = tg.getAttribute("data-id");
 	var pe = tg.parentElement;
-	pe.innerHTML = "<p>formulário de edição</p>";
+	var json = JSON.parse(pe.getAttribute("data-json"));
+	console.log(json);
+	pe.innerHTML = '<input type="text" value="'+json.titulo+'"><btn class="btn red" onclick="remover("'+id+'")">Remover</btn>';
+}
+
+function remover(id){
+	alert(id);
 }
 
 var menuhtml = '<a href=';
@@ -52,7 +58,7 @@ firebase.database().ref('notas').on('value', function (snapshot) {
 		var d = dia + '/' + (mes+1) + '/' + ano;
 		var h = hours + ':' + minutes + ':' + seconds;
 		var dh = d + ' às ' + h;
-		lista.innerHTML += '<div class="card"><div class="card-content"><span class="card-title cardclick" data-id='+item.key+'>'+item.val().titulo+'</span><small>'+dh+'</small><p>'+item.val().conteudo+'</p></div></div>';       
+		lista.innerHTML += '<div class="card"><div class="card-content" data-json=\''+JSON.stringify(item.val())+'\'><span class="card-title cardclick" data-id='+item.key+'>'+item.val().titulo+'</span><small>'+dh+'</small><p>'+item.val().conteudo+'</p></div></div>';       
     });
 	var cardclick = document.getElementsByClassName('cardclick');
 	for (var i = 0; i < cardclick.length; i++) {
