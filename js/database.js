@@ -47,7 +47,8 @@ function reabrir(){
 var menuhtml = '<a href=';
 
 criar.addEventListener('click', function () {
-    var r = criarNota(titulo.value, conteudo.value, visibilidade.value);
+	var uid = "usuario-marcos-paulo";
+    var r = criarNota(uid, titulo.value, conteudo.value, visibilidade.value);
 	painelnota.style.display = 'none';
 });
 
@@ -55,7 +56,7 @@ deletarTudo.addEventListener('click', function () {
 	firebase.database().ref("notas").remove();
 });
 
-function criarNota(titulo, conteudo, visibilidade) {
+function criarNota(uid, titulo, conteudo, visibilidade) {
     var data = {
         titulo: titulo,
         conteudo: conteudo,
@@ -64,7 +65,11 @@ function criarNota(titulo, conteudo, visibilidade) {
 		estado: "aberta",
 		idusuario: 230
     };	
-    return firebase.database().ref().child('notas').push(data);	
+	var notaKey = firebase.database().ref().child('notas').push().key;
+	var updates = {};
+	updates['/notas/' + notaKey] = data;
+	updates['/usuario-notas/' + uid + '/' + notaKey] = data;
+	return firebase.database().ref().update(updates);
 }
 
 firebase.database().ref('notas').on('value', function (snapshot) {
