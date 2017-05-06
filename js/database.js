@@ -16,7 +16,11 @@ var menuzinho = function(){
 	pe = pe.parentElement;
 	var json = JSON.parse(pe.getAttribute("data-json"));	
 	pe.setAttribute("class","nota-"+id+" card-content blue lighten-5");
-	pe.innerHTML = '<span class="card-title">Edição da nota '+id+' <a href="#"><i class="material-icons right">close</i></a></span><input type="text" name="ttitulo" value="'+json.titulo+'"><textarea id="tconteudo" class="materialize-textarea">'+json.conteudo+'</textarea><btn class="btn blue" onclick=\'editar("'+id+'")\'>Editar</btn><btn class="btn red" onclick=\'remover("'+id+'")\'>Remover</btn>';
+	pe.innerHTML = '<span class="card-title">Edição da nota '+id+' <a onclick="reabrir()"><i class="material-icons right">close</i></a></span><input type="text" name="ttitulo" value="'+json.titulo+'"><textarea id="tconteudo" class="materialize-textarea">'+json.conteudo+'</textarea><btn class="btn blue" onclick=\'editar("'+id+'")\'>Editar</btn><btn class="btn red" onclick=\'remover("'+id+'")\'>Remover</btn>';
+	var cardclick = document.getElementsByClassName('cardclick');
+	for (var i = 0; i < cardclick.length; i++) {
+		cardclick[i].style.display = 'none';
+	}
 }
 
 function remover(id){
@@ -31,6 +35,13 @@ function editar(id){
 	var up = {};
 	up["/notas/"+id] = {titulo:titulo, timestamp:json.timestamp, conteudo:conteudo};
 	return firebase.database().ref().update(up);
+}
+
+function reabrir(){
+	var cardclick = document.getElementsByClassName('cardclick');
+	for (var i = 0; i < cardclick.length; i++) {
+		cardclick[i].style.display = 'initial';
+	}	
 }
 
 var menuhtml = '<a href=';
@@ -69,7 +80,7 @@ firebase.database().ref('notas').on('value', function (snapshot) {
 		var d = dia + '/' + (mes+1) + '/' + ano;
 		var h = hours + ':' + minutes + ':' + seconds;
 		var dh = d + ' às ' + h;
-		lista.innerHTML += '<div class="card"><div class="card-content nota-'+item.key+'" data-json=\''+JSON.stringify(item.val())+'\'><span class="card-title" data-id='+item.key+'>'+item.val().titulo+'<a href="#" class="cardclick right" data-id='+item.key+'>(...)</a></span><small>'+dh+'</small><p>'+item.val().conteudo+'</p></div></div>';       
+		lista.innerHTML += '<div class="card"><div class="card-content nota-'+item.key+'" data-json=\''+JSON.stringify(item.val())+'\'><span class="card-title" data-id='+item.key+'>'+item.val().titulo+'<a class="cardclick right" data-id='+item.key+'>(...)</a></span><small>'+dh+'</small><p>'+item.val().conteudo+'</p></div></div>';       
     });
 	var cardclick = document.getElementsByClassName('cardclick');
 	for (var i = 0; i < cardclick.length; i++) {
