@@ -85,7 +85,7 @@ firebase.database().ref('notas').on('value', function (snapshot) {
 		var d = dia + '/' + (mes+1) + '/' + ano;
 		var h = hours + ':' + minutes + ':' + seconds;
 		var dh = d + ' às ' + h;
-		lista.innerHTML += '<div class="card"><div class="card-content nota-'+item.key+'" data-json=\''+JSON.stringify(item.val())+'\'><span class="card-title" data-id='+item.key+'>'+item.val().titulo+'<a class="cardclick right" data-id='+item.key+'>(...)</a></span><small>'+dh+'</small><p>'+item.val().conteudo+'</p></div></div>';       
+		lista.innerHTML += '<div class="card"><div class="card-content nota-'+item.key+'" data-json=\''+JSON.stringify(item.val())+'\'><span class="card-title" data-id='+item.key+'>'+item.val().titulo+'<a class="cardclick right" data-id='+item.key+'>(...)</a></span><small>'+dh+' '+item.val().visibilidade+'</small><p>'+item.val().conteudo+'</p></div></div>';       
     });
 	var cardclick = document.getElementsByClassName('cardclick');
 	for (var i = 0; i < cardclick.length; i++) {
