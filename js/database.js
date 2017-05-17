@@ -1,3 +1,4 @@
+//atalhos para elementos
 var titulo = document.getElementById('titulo');
 var conteudo = document.getElementById('conteudo');
 var visibilidade = document.getElementById('visibilidade');
@@ -16,7 +17,7 @@ var menuzinho = function(){
 	pe = pe.parentElement;
 	var json = JSON.parse(pe.getAttribute("data-json"));	
 	pe.setAttribute("class","nota-"+id+" card-content blue lighten-5");
-	pe.innerHTML = '<span class="card-title">Edição da nota '+id+' <a onclick="reabrir()"><i class="material-icons right">close</i></a></span><input type="text" name="ttitulo" value="'+json.titulo+'"><textarea id="tconteudo" class="materialize-textarea">'+json.conteudo+'</textarea><btn class="btn btn-flat" onclick=\'remover("'+id+'")\'>Apagar</btn><btn class="btn blue" onclick=\'editar("'+id+'")\'>Editar</btn>';
+	pe.innerHTML = '<span class="card-title">Edição da nota '+id+' <a onclick="reabrir()"><i class="material-icons right">close</i></a></span><input type="text" name="ttitulo" value="'+json.titulo+'"><textarea id="tconteudo" class="materialize-textarea">'+json.conteudo+'</textarea><btn class="btn btn-flat" onclick=\'remover("'+id+'")\'>Apagar</btn><btn class="btn blue" onclick=\'editar("'+id+'")\'>Salvar</btn>';
 	var cardclick = document.getElementsByClassName('cardclick');
 	for (var i = 0; i < cardclick.length; i++) {
 		cardclick[i].style.display = 'none';
@@ -45,16 +46,6 @@ function reabrir(){
 }
 
 var menuhtml = '<a href=';
-
-criar.addEventListener('click', function () {
-	var uid = "usuario-marcos-paulo";
-    var r = criarNota(uid, titulo.value, conteudo.value, visibilidade.value);
-	painelnota.style.display = 'none';
-});
-
-deletarTudo.addEventListener('click', function () {
-	firebase.database().ref("notas").remove();
-});
 
 function criarNota(uid, titulo, conteudo, visibilidade) {
     var data = {
@@ -101,4 +92,15 @@ firebase.database().ref('notas').on('value', function (snapshot) {
     snapshot.forEach(function (item) {		
 		console.log(item.val().titulo + ' - ' + item.val().conteudo + ' - ' + item.val().visibilidade );
     });
+});
+
+//criação de eventos
+criar.addEventListener('click', function () {
+	var uid = "usuario-marcos-paulo";
+    var r = criarNota(uid, titulo.value, conteudo.value, visibilidade.value);
+	painelnota.style.display = 'none';
+});
+
+deletarTudo.addEventListener('click', function () {
+	firebase.database().ref("notas").remove();
 });
