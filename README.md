@@ -14,7 +14,9 @@ MNotas é uma aplicação web responsiva que possibilita seus usuários manterem
 ## Tecnologias
 
 **Front-end:** HTML, CSS e JavaScript  
-**Back-end:** Firebase
+**Back-end:** Firebase  
+Servidor Local: http-server
+
 
 ## Licença
 
