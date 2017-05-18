@@ -57,6 +57,10 @@ function reabrir(){
 		cardclick[i].style.display = 'initial';
 	}	
 	atualizar();
+	var cardclick = document.getElementsByClassName('cardclick');
+	for (var i = 0; i < cardclick.length; i++) {
+		cardclick[i].addEventListener('dblclick', menuzinho, false);
+	}
 }
 
 var menuhtml = '<a href=';
