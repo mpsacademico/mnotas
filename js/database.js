@@ -42,11 +42,21 @@ function editar(id){
 	return firebase.database().ref().update(up);
 }
 
+function atualizar(){
+	lista.innerHTML = '';
+	firebase.database().ref('/notas/').once('value', function(snapshot){
+		snapshot.forEach(function (item) {	
+			lista.innerHTML += construirHTMLNota(item);
+		})
+	});
+}
+
 function reabrir(){
 	var cardclick = document.getElementsByClassName('cardclick');
 	for (var i = 0; i < cardclick.length; i++) {
 		cardclick[i].style.display = 'initial';
 	}	
+	atualizar();
 }
 
 var menuhtml = '<a href=';
