@@ -17,7 +17,11 @@ var menuzinho = function(){
 	pe = pe.parentElement;
 	var json = JSON.parse(pe.getAttribute("data-json"));	
 	pe.setAttribute("class","nota-"+id+" card-content blue lighten-5");
-	pe.innerHTML = '<span class="card-title">Edição da nota '+id+' <a onclick="reabrir()"><i class="material-icons right">close</i></a></span><input type="text" name="ttitulo" value="'+json.titulo+'"><textarea id="tconteudo" class="materialize-textarea">'+json.conteudo+'</textarea><btn class="btn btn-flat" onclick=\'remover("'+id+'")\'>Apagar</btn><btn class="btn blue" onclick=\'editar("'+id+'")\'>Salvar</btn>';
+	pe.innerHTML = '<span class="card-title">Edição da nota '+id+' <a onclick="reabrir()"><i class="material-icons right">close</i></a></span>'+
+	'<input type="text" name="ttitulo" value="'+json.titulo+'">'+
+	'<textarea id="tconteudo" class="materialize-textarea">'+json.conteudo+'</textarea>'+
+	'<btn class="btn btn-flat" onclick=\'remover("'+id+'")\'>Apagar</btn>'+
+	'<btn class="btn blue" onclick=\'editar("'+id+'")\'>Salvar</btn>';
 	var cardclick = document.getElementsByClassName('cardclick');
 	for (var i = 0; i < cardclick.length; i++) {
 		cardclick[i].style.display = 'none';
