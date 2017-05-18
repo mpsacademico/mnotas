@@ -80,7 +80,13 @@ firebase.database().ref('notas').on('value', function (snapshot) {
 		if(item.val().visibilidade==="privada"){
 			priv = ' <img width="16px" height="16px" src="img/padlock.png" alt="">';
 		}
-		lista.innerHTML += '<div class="card"><div class="card-content nota-'+item.key+'" data-json=\''+JSON.stringify(item.val())+'\'><span class="card-title" data-id='+item.key+'>'+item.val().titulo+'<a class="cardclick right" data-id='+item.key+'>(...)</a></span><small>'+dh+priv+'</small><p>'+item.val().conteudo+'</p></div></div>';       
+		lista.innerHTML += '<div class="card">' +
+			'<div class="card-content nota-'+item.key+'" data-json=\''+JSON.stringify(item.val())+'\'>'+
+				'<span class="card-title" data-id='+item.key+'>'+item.val().titulo+'<a class="cardclick right" data-id='+item.key+'>(...)</a></span>'+
+				'<small>'+dh+priv+'</small>'+
+				'<p>'+item.val().conteudo+'</p>'+
+			'</div>'+
+		'</div>';       
     });
 	var cardclick = document.getElementsByClassName('cardclick');
 	for (var i = 0; i < cardclick.length; i++) {
