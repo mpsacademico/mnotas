@@ -114,7 +114,7 @@ firebase.database().ref('notas').on('value', function (snapshot) {
     });
 	var cardclick = document.getElementsByClassName('cardclick');
 	for (var i = 0; i < cardclick.length; i++) {
-		cardclick[i].addEventListener('dblclick', menuzinho, false);
+		cardclick[i].addEventListener('click', menuzinho, false);
 	}
 });
 
