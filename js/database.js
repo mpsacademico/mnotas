@@ -73,7 +73,7 @@ function criarNota(uid, titulo, conteudo, visibilidade) {
 		timestamp: + new Date(),
 		visibilidade: visibilidade,
 		estado: "aberta",
-		idusuario: 230
+		idusuario: uid
     };	
 	var notaKey = firebase.database().ref().child('notas').push().key;
 	var updates = {};
@@ -107,7 +107,7 @@ function construirHTMLNota(item){
 	return cardNota;
 }
 
-firebase.database().ref('notas').on('value', function (snapshot) {
+firebase.database().ref('/usuario-notas/'+uid).on('value', function (snapshot) {
     lista.innerHTML = '';
     snapshot.forEach(function (item) {				 
 		lista.innerHTML += construirHTMLNota(item);
@@ -118,15 +118,15 @@ firebase.database().ref('notas').on('value', function (snapshot) {
 	}
 });
 
-firebase.database().ref('notas').on('value', function (snapshot) {
+/*firebase.database().ref('notas').on('value', function (snapshot) {
     snapshot.forEach(function (item) {		
 		console.log(item.val().titulo + ' - ' + item.val().conteudo + ' - ' + item.val().visibilidade );
     });
-});
+});*/
 
 //criação de eventos
 criar.addEventListener('click', function () {
-	var uid = "usuario-marcos-paulo";
+	//var uid = "usuario-marcos-paulo";
     var r = criarNota(uid, titulo.value, conteudo.value, visibilidade.value);
 	painelnota.style.display = 'none';
 });
