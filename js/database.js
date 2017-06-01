@@ -20,8 +20,8 @@ var menuzinho = function(){
 	pe.innerHTML = '<span class="card-title">Edição de nota...<a onclick="reabrir()"><i class="material-icons right">close</i></a></span>'+
 	'<input type="text" name="ttitulo" value="'+json.titulo+'">'+
 	'<textarea id="tconteudo" class="materialize-textarea">'+json.conteudo+'</textarea>'+	
-	'<btn class="btn-large btn-flat" onclick=\'remover("'+id+'")\'><i class="material-icons left">delete</i></btn> '+
-	'<btn class="btn-large btn-flat" onclick=\'\'><i class="material-icons left">present_to_all</i></btn> '+
+	'<btn class="btn-large btn-flat" onclick=\'remover("'+id+'")\'><i class="material-icons">delete</i></btn> '+
+	'<btn class="btn-large btn-flat" onclick=\'\'><i class="material-icons">present_to_all</i></btn> '+
 	'<btn class="btn blue" onclick=\'editar("'+id+'")\'>Salvar</btn>';
 	var cardclick = document.getElementsByClassName('cardclick');
 	for (var i = 0; i < cardclick.length; i++) {
