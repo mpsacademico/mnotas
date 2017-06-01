@@ -95,7 +95,7 @@ function construirHTMLNota(item){
 	var dh = d + ' às ' + h;
 	var priv = "";
 	if(item.val().visibilidade==="privada"){
-		priv = ' <img width="16px" height="16px" src="img/padlock.png" alt="">';
+		priv = ' <i class="material-icons">lock</i>';
 	}	
 	var cardNota = '<div class="card">' +
 			'<div class="card-content nota-'+item.key+'" data-json=\''+JSON.stringify(item.val())+'\'>'+
