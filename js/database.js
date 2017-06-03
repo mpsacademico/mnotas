@@ -45,7 +45,7 @@ function editar(id){
 
 function atualizar(){
 	lista.innerHTML = '';
-	firebase.database().ref('/notas/').once('value', function(snapshot){
+	firebase.database().ref('/usuario-notas/'+uid).once('value', function(snapshot){
 		snapshot.forEach(function (item) {	
 			lista.innerHTML += construirHTMLNota(item);
 		})
