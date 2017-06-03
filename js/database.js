@@ -116,6 +116,8 @@ firebase.database().ref('/usuario-notas/'+uid).on('value', function (snapshot) {
 	for (var i = 0; i < cardclick.length; i++) {
 		cardclick[i].addEventListener('click', menuzinho, false);
 	}
+	var carregando = document.getElementById("carregando");
+	carregando.style.display = "none";
 });
 
 /*firebase.database().ref('notas').on('value', function (snapshot) {
