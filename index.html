@@ -7,113 +7,127 @@
 		<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"  media="screen,projection"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+		<style>
+			  body {
+				display: flex;
+				min-height: 100vh;
+				flex-direction: column;
+			  }
+
+			  main {
+				flex: 1 0 auto;
+			  }
+		</style>
 	</head>
 	<body>
-		<nav class="teal darken-2">
-			<div class="nav-wrapper">
-				<a href="/" class="brand-logo center">MNotas</a>			
-			</div>
-		</nav>
-		<div class="container">
-			<div class="row">
-				<p>Formulário de autenticação</p>
-				<p><a href="#" class="bt-pnl-criar-nova-nota" onclick="document.getElementById('painel-nota').style.display='block';">Criar nova nota textual</a> &bull; 
-					<a id="conf-deletar-tudo" href="#confirmar-deletar-tudo">Apagar tudo</a>
-				</p>				
-				<div id="confirmar-deletar-tudo" class="modal">
-					<div class="modal-content">
-						<h4>Apagar tudo</h4>
-						<p>Todas as notas serão excluídas permanentente. Deseja prosseguir?</p>
-						<p><strong>Aviso: essa ação não poderá ser desfeita!</strong></p>
-					</div>
-					<div class="modal-footer">			
-						<a class="modal-action modal-close waves-effect waves-light btn-flat">Cancelar</a>
-						<a id="deletar-tudo" class="modal-action modal-close waves-effect waves-green btn red">Apagar tudo</a>
-					</div>
+		<main>
+			<nav class="teal darken-2">
+				<div class="nav-wrapper">
+					<a href="/" class="brand-logo center">MNotas</a>			
 				</div>
-				<p class="center-align"><img id="carregando" src="img/loader.gif"></p> <!--gerado preliminarmente com https://loading.io/-->
-				<div class="fixed-action-btn horizontal click-to-toggle">
-					<a class="btn-floating btn-large red">
-					<i class="material-icons">menu</i>
-					</a>
-					<ul>
-						<li><a class="btn-floating red"><i class="material-icons">mode_edit</i></a></li>
-						<li><a class="btn-floating yellow darken-1"><i class="material-icons">delete</i></a></li>
-						<li><a class="btn-floating green"><i class="material-icons">attach_file</i></a></li>
-						<li><a class="btn-floating blue"><i class="material-icons">insert_chart</i></a></li>
-					</ul>
-				</div>
-				<div id="painel-nota" style="display:none" class="col s12 m12">
-					<div class="card darken-1">
-						<div class="card-content #e3f2fd blue lighten-5 black-text">
-							<span class="card-title">Nova Nota <a class="right" onclick="document.getElementById('painel-nota').style.display='none';">X</a></span>
-							<div class="row">
-								<form class="col s12">
-									<div class="row">
-										<div class="input-field col s12">
-											<input placeholder="" id="titulo" type="text" class="validate">
-											<label for="titulo">Título</label>
+			</nav>
+			<div class="container">
+				<div class="row">
+					<p>Formulário de autenticação</p>
+					<p><a href="#" class="bt-pnl-criar-nova-nota" onclick="document.getElementById('painel-nota').style.display='block';">Criar nova nota textual</a> &bull; 
+						<a id="conf-deletar-tudo" href="#confirmar-deletar-tudo">Apagar tudo</a>
+					</p>				
+					<div id="confirmar-deletar-tudo" class="modal">
+						<div class="modal-content">
+							<h4>Apagar tudo</h4>
+							<p>Todas as notas serão excluídas permanentente. Deseja prosseguir?</p>
+							<p><strong>Aviso: essa ação não poderá ser desfeita!</strong></p>
+						</div>
+						<div class="modal-footer">			
+							<a class="modal-action modal-close waves-effect waves-light btn-flat">Cancelar</a>
+							<a id="deletar-tudo" class="modal-action modal-close waves-effect waves-green btn red">Apagar tudo</a>
+						</div>
+					</div>
+					<p class="center-align"><img id="carregando" src="img/loader.gif"></p> <!--gerado preliminarmente com https://loading.io/-->
+					<div class="fixed-action-btn horizontal click-to-toggle">
+						<a class="btn-floating btn-large red">
+						<i class="material-icons">menu</i>
+						</a>
+						<ul>
+							<li><a class="btn-floating red"><i class="material-icons">mode_edit</i></a></li>
+							<li><a class="btn-floating yellow darken-1"><i class="material-icons">delete</i></a></li>
+							<li><a class="btn-floating green"><i class="material-icons">attach_file</i></a></li>
+							<li><a class="btn-floating blue"><i class="material-icons">insert_chart</i></a></li>
+						</ul>
+					</div>
+					<div id="painel-nota" style="display:none" class="col s12 m12">
+						<div class="card darken-1">
+							<div class="card-content #e3f2fd blue lighten-5 black-text">
+								<span class="card-title">Nova Nota <a class="right" onclick="document.getElementById('painel-nota').style.display='none';">X</a></span>
+								<div class="row">
+									<form class="col s12">
+										<div class="row">
+											<div class="input-field col s12">
+												<input placeholder="" id="titulo" type="text" class="validate">
+												<label for="titulo">Título</label>
+											</div>
 										</div>
-									</div>
-									<div class="row">
-										<div class="input-field col s12">		
-											<textarea id="conteudo" class="materialize-textarea"></textarea>
-											<label for="conteudo">Conteúdo</label>
+										<div class="row">
+											<div class="input-field col s12">		
+												<textarea id="conteudo" class="materialize-textarea"></textarea>
+												<label for="conteudo">Conteúdo</label>
+											</div>
 										</div>
-									</div>
-									<div class="row">
-										<div class="input-field col s12">
-											<select id="visibilidade">
-												<option value="" disabled selected>Escolha a visibilidade</option>
-												<option value="publica">Pública</option>
-												<option value="privada">Privada</option>
-											</select>
-											<label>Visibilidade</label>
+										<div class="row">
+											<div class="input-field col s12">
+												<select id="visibilidade">
+													<option value="" disabled selected>Escolha a visibilidade</option>
+													<option value="publica">Pública</option>
+													<option value="privada">Privada</option>
+												</select>
+												<label>Visibilidade</label>
+											</div>
 										</div>
-									</div>
-									<a id="criar" class="waves-effect waves-light btn light-blue">Criar nota textual</a>
-									<p></p>
-								</form>
+										<a id="criar" class="waves-effect waves-light btn light-blue">Criar nota textual</a>
+										<p></p>
+									</form>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<!-- Modal Structure -->
-				<div id="confirmar-deletar" class="modal">
-					<div class="modal-content">
-						<h4>Excluir nota</h4>
-						<p>A nota <b id="textnota"></b> será excluída permanentente. Deseja prosseguir?</p>
-					</div>
-					<div class="modal-footer">			
-						<a class="modal-action modal-close waves-effect waves-light btn">Cancelar</a>
-						<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Excluir permanentemente</a>
-					</div>
-				</div>
 				<div class="row">
-					<div class="col s12 m12" id="lista">
+					<!-- Modal Structure -->
+					<div id="confirmar-deletar" class="modal">
+						<div class="modal-content">
+							<h4>Excluir nota</h4>
+							<p>A nota <b id="textnota"></b> será excluída permanentente. Deseja prosseguir?</p>
+						</div>
+						<div class="modal-footer">			
+							<a class="modal-action modal-close waves-effect waves-light btn">Cancelar</a>
+							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Excluir permanentemente</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col s12 m12" id="lista">
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<footer class="page-footer teal darken-2">
-			<div class="container">
-				<div class="row">
-					<div class="col l6 s12">					
-						<h5 class="white-text">MNotas</h5>
-						<p class="grey-text text-lighten-4">Crie e organize notas pessoais</p>
-						<p class="grey-text text-lighten-4"><small>O MNotas é um sistema em fase de desenvolvimento</small></p>
-					</div>
-				</div>
-			</div>
-			<div class="footer-copyright">
+		</main>
+			<footer class="page-footer teal darken-2">
 				<div class="container">
-					&copy; 2017 MNotas MPS. Todos os direitos reservados.
-					<a href="https://github.com/mpsacademico/mnotas/blob/master/README.md" class="grey-text text-lighten-4 right" title="Leia a documentação do projeto no GitHub" target="_blank">Documentação</a></a>
+					<div class="row">
+						<div class="col l6 s12">					
+							<h5 class="white-text">MNotas</h5>
+							<p class="grey-text text-lighten-4">Crie e organize notas pessoais</p>
+							<p class="grey-text text-lighten-4"><small>O MNotas é um sistema em fase de desenvolvimento</small></p>
+						</div>
+					</div>
 				</div>
-			</div>
-		</footer>
+				<div class="footer-copyright">
+					<div class="container">
+						&copy; 2017 MNotas MPS. Todos os direitos reservados.
+						<a href="https://github.com/mpsacademico/mnotas/blob/master/README.md" class="grey-text text-lighten-4 right" title="Leia a documentação do projeto no GitHub" target="_blank">Documentação</a></a>
+					</div>
+				</div>
+			</footer>
+		
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 		<script>
