@@ -17,7 +17,7 @@ var menuzinho = function(){
 	pe = pe.parentElement;
 	var json = JSON.parse(pe.getAttribute("data-json"));	
 	pe.setAttribute("class","nota-"+id+" card-content blue lighten-5");
-	pe.innerHTML = '<span class="card-title">Edição de nota...<a onclick="reabrir()"><i class="material-icons right">close</i></a></span>'+
+	pe.innerHTML = '<span class="card-title">Modo de Edição de Nota<a onclick="reabrir()"><i class="material-icons right">close</i></a></span>'+
 	'<input type="text" name="ttitulo" value="'+json.titulo+'">'+
 	'<textarea id="tconteudo" class="materialize-textarea">'+json.conteudo+'</textarea>'+	
 	'<btn class="btn-large btn-flat" onclick=\'remover("'+id+'")\'><i class="material-icons">delete</i></btn> '+
