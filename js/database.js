@@ -136,3 +136,6 @@ criar.addEventListener('click', function () {
 deletarTudo.addEventListener('click', function () {
 	firebase.database().ref("notas").remove();
 });
+
+var userInfo = document.getElementById("user-info");
+userInfo.innerHTML = username;
