@@ -15,7 +15,16 @@ MNotas é uma aplicação web responsiva que possibilita seus usuários manterem
 
 **Front-end:** HTML, CSS e JavaScript  
 **Back-end:** Firebase  
-Servidor Local: http-server
+**Servidor Local:** http-server
+
+## Paleta de Cores
+
+- ![#004C3E](https://placehold.it/15/004C3E/000000?text=+) `#004C3E` logotipo
+- ![#00796B](https://placehold.it/15/00796B/000000?text=+) `#00796B` cabeçalho
+- ![#047467](https://placehold.it/15/047467/000000?text=+) `#047467` rodapé
+- ![#E3F2FD](https://placehold.it/15/E3F2FD/000000?text=+) `#E3F2FD` quadros
+- ![#03A9F4](https://placehold.it/15/03A9F4/000000?text=+) `#03A9F4` botões
+- ![#F44336](https://placehold.it/15/F44336/000000?text=+) `#F44336` alertas
 
 ## Referências
 
