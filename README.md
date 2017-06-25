@@ -26,6 +26,14 @@ MNotas é uma aplicação web responsiva que possibilita seus usuários manterem
 - ![#03A9F4](https://placehold.it/15/03A9F4/000000?text=+) `#03A9F4` botões
 - ![#F44336](https://placehold.it/15/F44336/000000?text=+) `#F44336` alertas
 
+## Execução do Projeto
+
+### Ambiente de Desenvolvimento
+
+Executar o comando abaixo dentro do diretório raiz:
+
+``http-server -c1 -a localhost``
+
 ## Referências
 
 ![favicon.png](img/favicon.png)  
