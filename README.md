@@ -34,6 +34,10 @@ Executar o comando abaixo dentro do diretório raiz:
 
 ``http-server -c1 -a localhost``
 
+## Releases
+
+PROT - Desenvolvimento do protótipo
+
 ## Referências
 
 ![favicon.png](img/favicon.png)  
