@@ -11,11 +11,11 @@ MNotas é uma aplicação web responsiva que possibilita seus usuários manterem
 - Visualizar bloco de notas
 - Criar conta de usuário
 
-## Tecnologias
+## Linguagens, Ferramentas e Bibliotecas
 
-**Front-end:** HTML, CSS e JavaScript  
-**Back-end:** Firebase  
-**Servidor Local:** http-server
+- HTML, CSS e JavaScript  
+- Notepad++, Firebase e http-server
+- Materialize CSS
 
 ## Paleta de Cores
 
